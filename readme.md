@@ -4,7 +4,11 @@
 <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
 
 ## Running petclinic on Docker
-TODO
+```
+	docker run -d -p 8080:8080 bxtp4p/spring-petclinic
+```
+
+You can now access the app at: http://localhost:8080/pet-clinic
 
 ## Running petclinic locally
 ```
