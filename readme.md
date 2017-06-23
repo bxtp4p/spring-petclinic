@@ -11,7 +11,7 @@
 	docker run -d -p 8080:8080 bxtp4p/spring-petclinic
 ```
 
-You can now access the Dockerized app at: http://localhost:8080
+You can now access the Dockerized app at: http://localhost:8080/
 
 ## Running petclinic locally
 ```
