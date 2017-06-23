@@ -5,10 +5,13 @@
 
 ## Running petclinic on Docker
 ```
+	git clone https://github.com/spring-projects/spring-petclinic.git
+	cd spring-petclinic
+	./mvnw -D skipTests clean package
 	docker run -d -p 8080:8080 bxtp4p/spring-petclinic
 ```
 
-You can now access the app at: http://localhost:8080
+You can now access the Dockerized app at: http://localhost:8080
 
 ## Running petclinic locally
 ```
@@ -20,10 +23,6 @@ You can now access the app at: http://localhost:8080
 You can then access petclinic here: http://localhost:8080/
 
 <img width="1042" alt="petclinic-screenshot" src="https://cloud.githubusercontent.com/assets/838318/19727082/2aee6d6c-9b8e-11e6-81fe-e889a5ddfded.png">
-
-## In case you find a bug/suggested improvement for Spring Petclinic
-Our issue tracker is available here: https://github.com/spring-projects/spring-petclinic/issues
-
 
 ## Database configuration
 
