@@ -5,7 +5,7 @@
 
 ## Running petclinic on Docker
 ```
-	git clone https://github.com/spring-projects/spring-petclinic.git
+	git clone https://github.com/bxtp4p/spring-petclinic.git
 	cd spring-petclinic
 	./mvnw -D skipTests clean package
 	docker run -d -p 8080:8080 bxtp4p/spring-petclinic
@@ -15,7 +15,7 @@ You can now access the Dockerized app at: http://localhost:8080
 
 ## Running petclinic locally
 ```
-	git clone https://github.com/spring-projects/spring-petclinic.git
+	git clone https://github.com/bxtp4p/spring-petclinic.git
 	cd spring-petclinic
 	./mvnw spring-boot:run
 ```
@@ -52,7 +52,7 @@ If m2e is not there, just follow the install process here: http://eclipse.org/m2
 
 1) In the command line
 ```
-git clone https://github.com/spring-projects/spring-petclinic.git
+git clone https://github.com/bxtp4p/spring-petclinic.git
 ```
 2) Inside Eclipse
 ```
@@ -64,28 +64,9 @@ File -> Import -> Maven -> Existing Maven project
 
 |Spring Boot Configuration | Class or Java property files  |
 |--------------------------|---|
-|The Main Class | [PetClinicApplication](https://github.com/spring-projects/spring-petclinic/blob/master/src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java) |
-|Properties Files | [application.properties](https://github.com/spring-projects/spring-petclinic/blob/master/src/main/resources) |
-|Caching | [CacheConfig](https://github.com/spring-projects/spring-petclinic/blob/master/src/main/java/org/springframework/samples/petclinic/system/CacheConfig.java) |
-
-## Interesting Spring Petclinic branches and forks
-
-The Spring Petclinic master branch in the main
-[spring-projects](https://github.com/spring-projects/spring-petclinic)
-GitHub org is the "canonical" implementation, currently based on
-Spring Boot and Thymeleaf. There are quite a few forks in a special
-GitHub org [spring-petclinic](https://github.com/spring-petclinic). If
-you have a special interest in a different technology stack that could
-be used to implement the Pet Clinic then please join the community
-there.
-
-| Link | Main technologies |
-|----------------|-------------------|
-| [spring-framework-petclinic](https://github.com/spring-petclinic/spring-framework-petclinic) | Spring Framework XML configuration, JSP pages, 3 persistence layers: JDBC, JPA and Spring Data JPA |
-| [javaconfig branch](https://github.com/spring-petclinic/spring-framework-petclinic/tree/javaconfig) | Same frameworks as the [spring-framework-petclinic](https://github.com/spring-petclinic/spring-framework-petclinic) but with Java Configuration instead of XML |
-| [spring-petclinic-angular](https://github.com/spring-petclinic/spring-petclinic-angularjs) | AngularJS 1.x, Spring Boot and Spring Data JPA |
-| [spring-petclinic-microservices](https://github.com/spring-petclinic/spring-petclinic-microservices) | Distributed version of Spring Petclinic built with Spring Cloud |
-| [spring-petclinic-reactjs](https://github.com/spring-petclinic/spring-petclinic-reactjs) | ReactJS (with TypeScript) and Spring Boot |
+|The Main Class | [PetClinicApplication](https://github.com/bxtp4p/spring-petclinic/blob/master/src/main/java/org/springframework/samples/petclinic/PetClinicApplication.java) |
+|Properties Files | [application.properties](https://github.com/bxtp4p/spring-petclinic/blob/master/src/main/resources) |
+|Caching | [CacheConfig](https://github.com/bxtp4p/spring-petclinic/blob/master/src/main/java/org/springframework/samples/petclinic/system/CacheConfig.java) |
 
 
 ## Interaction with other open source projects
@@ -98,14 +79,4 @@ Here is a list of them:
 | Spring JDBC: simplify usage of NamedParameterJdbcTemplate | [SPR-10256](https://jira.springsource.org/browse/SPR-10256) and [SPR-10257](https://jira.springsource.org/browse/SPR-10257) |
 | Bean Validation / Hibernate Validator: simplify Maven dependencies and backward compatibility |[HV-790](https://hibernate.atlassian.net/browse/HV-790) and [HV-792](https://hibernate.atlassian.net/browse/HV-792) |
 | Spring Data: provide more flexibility when working with JPQL queries | [DATAJPA-292](https://jira.springsource.org/browse/DATAJPA-292) |
-
-
-# Contributing
-
-The [issue tracker](https://github.com/spring-projects/spring-petclinic/issues) is the preferred channel for bug reports, features requests and submitting pull requests.
-
-For pull requests, editor preferences are available in the [editor config](.editorconfig) for easy use in common text editors. Read more and download plugins at <http://editorconfig.org>.
-
-
-
 
