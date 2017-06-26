@@ -7,11 +7,15 @@
 ```
 	git clone https://github.com/bxtp4p/spring-petclinic.git
 	cd spring-petclinic
-	./mvnw -D skipTests clean package
-	docker run -d -p 8080:8080 bxtp4p/spring-petclinic
+	./build.sh
 ```
+This will copy the source files to the build image, create an intermediate container to execute the build (and generate the WAR file), then the WAR file will be copied to the Tomcat image. 
 
-You can now access the Dockerized app at: http://localhost:8080/
+Assuming the build succeeded, you can then run the following to start the container:
+
+`docker run -d -p 8080:8080 bxtp4p/spring-petclinic`
+
+You can now access the Dockerized app at: [http://localhost:8080/](http://localhost:8080)
 
 ## Running petclinic locally
 ```
