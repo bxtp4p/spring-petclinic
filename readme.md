@@ -3,17 +3,17 @@
 ## Understanding the Spring Petclinic application with a few diagrams
 <a href="https://speakerdeck.com/michaelisvy/spring-petclinic-sample-application">See the presentation here</a>
 
-## Running petclinic on Docker
+## Running petclinic using Docker Compose
 ```
 	git clone https://github.com/bxtp4p/spring-petclinic.git
 	cd spring-petclinic
 	./build.sh
 ```
-This will copy the source files to the build image, create an intermediate container to execute the build (and generate the WAR file), then the WAR file will be copied to the Tomcat image. 
+This will copy the source files to the build image, create an intermediate container to execute the build (and generate the WAR file), then the WAR file will be copied to the Tomcat image.
 
-Assuming the build succeeded, you can then run the following to start the container:
+Assuming the build succeeded, you can then run the following to start the containers (web and db services) with Docker Compose:
 
-`docker run -d -p 8080:8080 bxtp4p/spring-petclinic`
+`docker-compose up -d`
 
 You can now access the Dockerized app at: [http://localhost:8080/](http://localhost:8080)
 
