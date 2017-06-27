@@ -29,4 +29,4 @@ RUN ["mvn","clean","--fail-never"]
 COPY src ./src
 
 # Copy the source files and execute the build to generate the WAR
-RUN ["mvn", "package"]
+RUN ["mvn", "package", "-DskipTests"]

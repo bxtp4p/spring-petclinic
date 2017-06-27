@@ -1,4 +1,4 @@
-FROM tomcat:latest
+FROM tomcat
 
 # Remove the root folder
 RUN rm -r /usr/local/tomcat/webapps/ROOT
