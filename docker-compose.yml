@@ -6,10 +6,14 @@ services:
     image: bxtp4p/spring-petclinic
     ports:
       - "8080:8080"
+    networks:
+      - spring-petclinic-net
     deploy:
       replicas: 2
       restart_policy:
         condition: on-failure
+    depends_on:
+      - "db"
   db:
     build: 
       context: .
@@ -17,3 +21,7 @@ services:
     image: bxtp4p/spring-petclinic-db
     ports:
       - "3306:3306"
+    networks:
+      - spring-petclinic-net
+networks:
+  spring-petclinic-net:
