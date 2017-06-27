@@ -9,7 +9,7 @@ services:
     networks:
       - spring-petclinic-net
     deploy:
-      replicas: 2
+      replicas: 3
       restart_policy:
         condition: on-failure
     depends_on:
@@ -19,8 +19,6 @@ services:
       context: .
       dockerfile: Dockerfile.db
     image: bxtp4p/spring-petclinic-db
-    ports:
-      - "3306:3306"
     networks:
       - spring-petclinic-net
 networks:
