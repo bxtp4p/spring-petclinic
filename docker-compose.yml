@@ -6,6 +6,10 @@ services:
     image: bxtp4p/spring-petclinic
     ports:
       - "8080:8080"
+    deploy:
+      replicas: 2
+      restart_policy:
+        condition: on-failure
   db:
     build: 
       context: .
