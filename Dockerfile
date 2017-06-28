@@ -1,5 +1,7 @@
 FROM tomcat
 
+#DEMO FOR BRANDON
+
 # Remove the root folder
 RUN rm -r /usr/local/tomcat/webapps/ROOT
 
