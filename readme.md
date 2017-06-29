@@ -1,4 +1,9 @@
 # Dockerized Spring PetClinic Sample Application
+## Build status
+
+<img src="http://bxt-bld0.centralus.cloudapp.azure.com:8080/job/spring-petclinic/badge/icon"/>
+
+(if the image is missing, it's because the build server is off)
 
 ## Building the application
 Run the following:
