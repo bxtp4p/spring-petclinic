@@ -3,7 +3,7 @@ services:
   web:
     build:
       context: .
-    image: bxtp4p/spring-petclinic
+    image: bxtp4p/spring-petclinic:1.5.1
     ports:
       - "80:8080"
     networks:
@@ -18,7 +18,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.db
-    image: bxtp4p/spring-petclinic-db
+    image: bxtp4p/spring-petclinic-db:1.5.1
     networks:
       - spring-petclinic-net
 networks:
