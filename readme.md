@@ -1,7 +1,7 @@
 # Dockerized Spring PetClinic Sample Application
 ## Build status
 
-[![Build Status](http://bxt-bld0.centralus.cloudapp.azure.com:8080/job/spring-petclinic/badge/icon)](http://bxt-bld0.centralus.cloudapp.azure.com:8080/job/spring-petclinic/)
+[![Build Status](http://bxt-bld0.centralus.cloudapp.azure.com:8080/buildStatus/icon?job=spring-petclinic)]
 
 (if the image is missing, it's because the build server is off)
 
