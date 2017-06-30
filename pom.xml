@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic</artifactId>
-  <version>1.5.2</version>
+  <version>1.5.3</version>
   <!-- BXT: changed the packaging from jar to war, so that it can be deployed into tomcat -->
   <packaging>war</packaging>
 
@@ -135,7 +135,7 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <executions>
           <execution>
-            Spring Boot Actuator displays build-related information 
+            Spring Boot Actuator displays build-related information
               if a META-INF/build-info.properties file is present
             <goals>
               <goal>build-info</goal>
@@ -168,7 +168,7 @@
         </executions>
       </plugin>
 
-      <!-- Spring Boot Actuator displays build-related information if a git.properties 
+      <!-- Spring Boot Actuator displays build-related information if a git.properties
         file is present at the classpath -->
       <plugin>
         <groupId>pl.project13.maven</groupId>
