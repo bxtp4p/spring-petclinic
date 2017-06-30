@@ -1,9 +1,17 @@
 version: '3'
 services:
+  db:
+    build: 
+      context: .
+      dockerfile: Dockerfile.db
+    image: bxtp4p/spring-petclinic-db:1.5.2
+    networks:
+      - spring-petclinic-net
+    command: --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
   web:
     build:
       context: .
-    image: bxtp4p/spring-petclinic:1.5.1
+    image: bxtp4p/spring-petclinic:1.5.2
     ports:
       - "80:8080"
     networks:
@@ -14,12 +22,6 @@ services:
         condition: on-failure
     depends_on:
       - "db"
-  db:
-    build: 
-      context: .
-      dockerfile: Dockerfile.db
-    image: bxtp4p/spring-petclinic-db:1.5.1
-    networks:
-      - spring-petclinic-net
 networks:
   spring-petclinic-net:
+    driver: overlay
