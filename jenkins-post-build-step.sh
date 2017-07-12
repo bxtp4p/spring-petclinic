@@ -1,3 +1,4 @@
+#!/bin/bash
 export DDR_HOST=bxt-ddr.centralus.cloudapp.azure.com:5001
 export DOCKER_IMAGE_NAME=$DDR_HOST/bxt.org/spring-petclinic
 export DOCKER_IMAGE_NAME_POM=$DOCKER_IMAGE_NAME:$POM_VERSION

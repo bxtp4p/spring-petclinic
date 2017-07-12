@@ -4,7 +4,7 @@ services:
     build: 
       context: .
       dockerfile: Dockerfile.db
-    image: bxt-ddr.centralus.cloudapp.azure.com:5001/bxt.org/spring-petclinic-db
+    image: "bxt-ddr.centralus.cloudapp.azure.com:5001/bxt.org/spring-petclinic-db:${POM_VERSION:-latest}"
     deploy:
       placement:
         constraints:
@@ -15,7 +15,7 @@ services:
   web:
     build:
       context: .
-    image: bxt-ddr.centralus.cloudapp.azure.com:5001/bxt.org/spring-petclinic
+    image: "bxt-ddr.centralus.cloudapp.azure.com:5001/bxt.org/spring-petclinic:${POM_VERSION:-latest}"
     ports:
       - "80:8080"
     deploy:
