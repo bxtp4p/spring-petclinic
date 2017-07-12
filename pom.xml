@@ -5,7 +5,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.springframework.samples</groupId>
   <artifactId>spring-petclinic</artifactId>
-  <version>1.5.3</version>
+  <version>1.5.4</version>
   <!-- BXT: changed the packaging from jar to war, so that it can be deployed into tomcat -->
   <packaging>war</packaging>
 
