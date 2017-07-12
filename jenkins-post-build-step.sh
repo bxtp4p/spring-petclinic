@@ -21,9 +21,9 @@ export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE="$DOCKER_CONTENT_TRUST_DEFAULT
 docker login https://$DDR_HOST -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 #Push the images to the registry
-docker push $DOCKER_IMAGE_NAME
+docker push $DOCKER_IMAGE_NAME:latest
 docker push $DOCKER_IMAGE_NAME_POM
-docker push $DOCKER_DB_IMAGE_NAME
+docker push $DOCKER_DB_IMAGE_NAME:latest
 docker push $DOCKER_DB_IMAGE_NAME_POM
 
 #Log out of DTR
