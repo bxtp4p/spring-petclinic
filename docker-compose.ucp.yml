@@ -9,8 +9,8 @@ services:
       placement:
         constraints:
           - node.role == worker
-    networks:
-      - spring-petclinic-net
+      update_config:
+        parallelism: 2
     command: --character-set-server=utf8 --collation-server=utf8_unicode_ci --init-connect='SET NAMES UTF8;' --innodb-flush-log-at-trx-commit=0
   web:
     build:
@@ -18,8 +18,6 @@ services:
     image: bxt-ddr.centralus.cloudapp.azure.com:5001/bxt.org/spring-petclinic
     ports:
       - "80:8080"
-    networks:
-      - spring-petclinic-net
     deploy:
       replicas: 3
       restart_policy:
@@ -27,8 +25,7 @@ services:
       placement:
         constraints:
           - node.role == worker
+      update_config:
+        parallelism: 1
     depends_on:
       - "db"
-networks:
-  spring-petclinic-net:
-    driver: overlay

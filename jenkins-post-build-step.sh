@@ -1,4 +1,5 @@
-export DOCKER_IMAGE_NAME=bxt-ddr.centralus.cloudapp.azure.com:5001/dockerdemoorg/spring-petclinic
+export DDR_HOST=bxt-ddr.centralus.cloudapp.azure.com:5001
+export DOCKER_IMAGE_NAME=$DDR_HOST/bxt.org/spring-petclinic
 export DOCKER_IMAGE_NAME_POM=$DOCKER_IMAGE_NAME:$POM_VERSION
 export DOCKER_DB_IMAGE_NAME=$DOCKER_IMAGE_NAME-db
 export DOCKER_DB_IMAGE_NAME_POM=$DOCKER_DB_IMAGE_NAME:$POM_VERSION
@@ -8,20 +9,25 @@ export COMPOSE_FILE=./docker-compose.ucp.yml
 sudo docker-compose -f $COMPOSE_FILE build
 
 #Create tags for the POM version
-sudo docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME_POM
-sudo docker tag $DOCKER_DB_IMAGE_NAME $DOCKER_DB_IMAGE_NAME_POM
+docker tag $DOCKER_IMAGE_NAME $DOCKER_IMAGE_NAME_POM
+docker tag $DOCKER_DB_IMAGE_NAME $DOCKER_DB_IMAGE_NAME_POM
+
+#Image signing
+export DOCKER_CONTENT_TRUST=1
+export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE="$DOCKER_CONTENT_TRUST_DEFAULT_PASSPHRASE"
+export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE="$DOCKER_CONTENT_TRUST_DEFAULT_PASSPHRASE"
 
 #Log in to DTR
-sudo docker login https://bxt-ddr.centralus.cloudapp.azure.com:5001 -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+docker login https://$DDR_HOST -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
 
 #Push the images to the registry
-sudo docker push $DOCKER_IMAGE_NAME
-sudo docker push $DOCKER_IMAGE_NAME_POM
-sudo docker push $DOCKER_DB_IMAGE_NAME
-sudo docker push $DOCKER_DB_IMAGE_NAME_POM
+docker push $DOCKER_IMAGE_NAME
+docker push $DOCKER_IMAGE_NAME_POM
+docker push $DOCKER_DB_IMAGE_NAME
+docker push $DOCKER_DB_IMAGE_NAME_POM
 
 #Log out of DTR
-sudo docker logout https://bxt-ddr.centralus.cloudapp.azure.com:5001
+docker logout https://$DDR_HOST
 
 #Deploy to UCP
 export DOCKER_TLS_VERIFY=1
