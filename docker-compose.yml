@@ -18,5 +18,7 @@ services:
       - spring-petclinic-net
     depends_on:
       - "db"
+    environment:
+      - MYSQL_DB_HOST=db
 networks:
   spring-petclinic-net:

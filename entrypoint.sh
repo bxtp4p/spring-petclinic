@@ -1,5 +1,5 @@
 #!/bin/sh
-until nc -z -v -w120 db 3306
+until nc -z -v -w120 $MYSQL_DB_HOST $MYSQL_DB_PORT
 do
   echo "Waiting for database connection..."
   # wait for 5 seconds before check again

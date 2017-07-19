@@ -29,3 +29,5 @@ services:
         parallelism: 1
     depends_on:
       - "db"
+    environment:
+      - MYSQL_DB_HOST=db
