@@ -16,12 +16,7 @@ services:
       - "80:8080"
     networks:
       - spring-petclinic-net
-    deploy:
-      replicas: 3
-      restart_policy:
-        condition: on-failure
     depends_on:
       - "db"
 networks:
   spring-petclinic-net:
-    driver: overlay

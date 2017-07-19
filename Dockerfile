@@ -24,20 +24,24 @@ WORKDIR /code
 # Copy the maven file to the app directory
 COPY pom.xml .
 
-# Copy the source
+# Update the maven dependencies
+RUN ["mvn", "clean"]
+
+# Copy the rest of the app's source code
 COPY src ./src
 
-# Copy the source files and execute the build to generate the WAR
-RUN ["mvn", "clean", "package", "-DskipTests"]
+# Package the WAR
+RUN ["mvn", "package", "-DskipTests"]
 
-FROM tomcat:9
-# Install some dependencies
-# Netcat used by wait-for-db script
-RUN apt-get update; apt-get install zip netcat -y
+FROM tomcat:9-alpine
+# Install dependencies
+RUN apk update; apk add zip netcat-openbsd curl
+
+WORKDIR /app
 
 # This script forces a wait to make sure the DB is ready
-COPY ./wait-for-db.sh .
-RUN ["chmod", "+rx", "./wait-for-db.sh"]
+COPY ./entrypoint.sh .
+RUN ["chmod", "+rx", "./entrypoint.sh"]
 
 ### Deploy the WAR to Tomcat
 # Remove the root folder
@@ -45,9 +49,4 @@ RUN ["rm", "-r", "/usr/local/tomcat/webapps/ROOT"]
 # Copy the application archive as ROOT.war so that the app becomes the root 
 COPY --from=builder /code/target/spring-petclinic.war /usr/local/tomcat/webapps/ROOT.war
 
-HEALTHCHECK --interval=60s --timeout=30s --retries=5 CMD curl -f localhost:8080 || exit 1
- 
-# Expose port 8080
-EXPOSE 8080
-
-CMD ./wait-for-db.sh && /usr/local/tomcat/bin/catalina.sh run
+ENTRYPOINT ["/app/entrypoint.sh"]
