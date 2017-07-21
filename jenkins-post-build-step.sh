@@ -4,7 +4,7 @@ export DOCKER_IMAGE_NAME=$DDR_HOST/bxt.org/spring-petclinic
 export DOCKER_IMAGE_NAME_POM=$DOCKER_IMAGE_NAME:$POM_VERSION
 export DOCKER_DB_IMAGE_NAME=$DOCKER_IMAGE_NAME-db
 export DOCKER_DB_IMAGE_NAME_POM=$DOCKER_DB_IMAGE_NAME:$POM_VERSION
-export COMPOSE_FILE=./docker-compose.ucp.yml
+export COMPOSE_FILE=./docker-compose.stack.yml
 
 #Build using Docker Compose
 sudo docker-compose -f $COMPOSE_FILE build
